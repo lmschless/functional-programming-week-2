@@ -4,7 +4,7 @@ require('./js-code.js');
 const canEat = function(creature) {
 	const obj = {
 		eat: function(food) {
-			return `The ${creature} eats the ${food}.`;
+			return `The ${creature.name} eats the ${food}.`;
 		}
 	};
 	return obj;
@@ -15,7 +15,7 @@ const canEat = function(creature) {
 const canSleep = function(creature) {
 	const obj = {
 		sleep: function() {
-			return `The ${creature} sleeps.`;
+			return `The ${creature.name} sleeps.`;
 		}
 	};
 	return obj;
@@ -23,6 +23,17 @@ const canSleep = function(creature) {
 
 // Make a function factory to assign both
 // methods to a single cat object.
+
+const sleepingEatingCreature = function(name) {
+	let state = {
+		name
+	};
+
+	return { ...state, ...canEat(state), ...canSleep(state) };
+};
+
+// above is referred to as object composition.
+const platypus = sleepingEatingCreature('platypus');
 
 const cat = canEat('cat');
 cat.eat('salmon');
