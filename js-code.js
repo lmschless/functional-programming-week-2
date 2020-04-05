@@ -1,31 +1,25 @@
 require('./js-code.js');
 
 // new linter can see that let is not allowed
-const canEat = function(creature) {
-	const obj = {
-		eat: function(food) {
-			return `The ${creature.name} eats the ${food}.`;
-		}
-	};
-	return obj;
-};
+const canEat = (creature) => ({
+	eat: (food) => {
+		return `The ${creature.name} eats the ${food}.`;
+	}
+});
 
 // use two separate methods, one for eat and one for sleep
 // keeps code modular and more reusable.
-const canSleep = function(creature) {
-	const obj = {
-		sleep: function() {
-			return `The ${creature.name} sleeps.`;
-		}
-	};
-	return obj;
-};
+const canSleep = (creature) => ({
+	sleep: () => {
+		return `The ${creature.name} sleeps.`;
+	}
+});
 
 // Make a function factory to assign both
 // methods to a single cat object.
 
-const sleepingEatingCreature = function(name) {
-	let state = {
+const sleepingEatingCreature = (name) => {
+	let creature = {
 		name
 	};
 
