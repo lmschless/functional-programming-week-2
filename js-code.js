@@ -27,10 +27,11 @@ const sleepingEatingCreature = (name) => {
 };
 
 // above is referred to as object composition.
-const platypus = sleepingEatingCreature('platypus');
 
-const cat = canEat('cat');
-cat.eat('salmon');
+// const platypus = sleepingEatingCreature('platypus');
 
-const salmon = canEat('salmon');
-salmon.eat('insects');
+// const cat = canEat('cat');
+// cat.eat('salmon');
+
+// const salmon = canEat('salmon');
+// salmon.eat('insects');
