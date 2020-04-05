@@ -86,3 +86,11 @@ const changePlantState = (plant, property) => {
 		[property]: (plant[property] || 0) + 1
 	};
 };
+// make above function more abstract so it can
+// work with anything, not just plants.
+const changeState = (state, prop) => {
+	return {
+		...state,
+		[prop]: (state[prop] || 0) + 1
+	};
+};
