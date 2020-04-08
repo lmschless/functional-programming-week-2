@@ -88,9 +88,19 @@ const changePlantState = (plant, property) => {
 };
 // make above function more abstract so it can
 // work with anything, not just plants.
-const changeState = (state, prop) => {
+const changeState = (state, prop, value) => {
 	return {
 		...state,
-		[prop]: (state[prop] || 0) + 1
+		[prop]: (state[prop] || 0) + value
+	};
+};
+
+// curry the function so that each closure only takes 1 argument
+const changeState = (prop) => {
+	return (value) => {
+		return (state) => ({
+			...state,
+			[prop]: (state[prop] || 0) + value
+		});
 	};
 };
