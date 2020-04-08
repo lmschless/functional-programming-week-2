@@ -104,3 +104,25 @@ const changeState = (prop) => {
 		});
 	};
 };
+const feed = changeState('soil');
+const hydrate = changeState('water');
+const giveLight = changeState('light');
+
+feed(5)(plant);
+
+const blueFood = changeState('soil')(5);
+const greenFood = changeState('soil')(10);
+const yuckyFood = changeState('soil')(-5);
+
+blueFood(plant);
+
+const storeState = () => {
+	let currentState = {};
+	return (stateChangeFunction) => {
+		const newState = stateChangeFunction(currentState);
+		currentState = { ...newState };
+		return newState;
+	};
+};
+
+const stateChanger = storeState;
